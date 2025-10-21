@@ -56,14 +56,14 @@ There are several reasons why RoAnalytics may not provide an overpay estimate fo
   - This prevents distorted or inflated data from being factored into predictions.
 
 Code logic used for determining eligibility:
-'''python
+```python
     if (
     item_value > 160000 
     or demand in ["Low", "Terrible"] 
     or daily_sales <= 0.1
     or projected
     ):
-'''
+```
 
 ---
 
