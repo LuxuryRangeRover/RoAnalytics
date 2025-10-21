@@ -60,8 +60,10 @@ There are several reasons why RoAnalytics may not provide an overpay estimate fo
 - Item value exceeds 160K
   - As the developer, I currently focus on items valued up to 160K. Items above this range aren’t yet supported because their trade data is more complex. As I gain more experience and collect more data, this limit will gradually increase.
 - Items with low or terrible demand often have unpredictable overpays, caused by market manipulation or irregular trade activity.
-  - For example, BPTH is known to have unstable overpay patterns, valued at 18K with 40K+ proofs.
-  - The same logic applies to RAP-based items - if an item sells less than 0.1 times per day, its market activity is too low to form a reliable prediction. (Example: Aer, 45k RAP, proofs show 20-40K)
+  - This applys for valued items with low/terrible demand tag
+    - For example, BPTH, being valued at 18K with 40K+ proofs.
+  - The same logic applies to RAP-based items - if an item sells less than 0.1 times per day, its market activity is too low to form a reliable prediction.
+    - For example, Aer, being valued at 45K RAP, with 40K+ proofs.
 - Item is projected
   - If an item is flagged as projected on Rolimon’s, no overpay estimate will be calculated.
   - This prevents distorted or inflated data from being factored into predictions.
