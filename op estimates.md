@@ -9,18 +9,14 @@ It provides insight into the data patterns, value relationships, and trade dynam
 Instead, RoAnalytics uses **predictive modeling to estimate overpays automatically data or simple calculations**. 
 Because of this, some estimates may not always be perfectly accurate. It’s always recommended to verify these overpays before trading.
 RoAnalytics was built to provide reliable, data-driven insights into item information - including predicted overpays for primarily high-demand items.
-
 ---
-
 ## Table of Contents
 1. [Understanding Overpays in Trading](#1-understanding-overpays-in-trading)
 2. [Overpay Calculations for RAP items](#2-overpay-calculations-for-rap-items)
 3. [Overpay Calculations for Valued items](#2-overpay-calculations-for-valued-items)
 4. [Why Overpay is N/A](#4-why-is-the-overpay-estimate-na-not-available)
 5. [Contact](#5-contact)
-
 ---
-
 ## 1. Understanding Overpays in Trading
 When trading, there are two types of overpays to keep in mind: 
 - **The overpay you give** - for example offering 300 overpay on a Legit
@@ -28,9 +24,7 @@ When trading, there are two types of overpays to keep in mind:
 
 In an *ideal scenario*, you want to **give less overpay than you receive**. 
 Because of this, overpay values can’t be represented by a single number/range; doing so would make it unclear whether that range applies to what you should give or what you should expect to receive.
-
 ---
-
 ## 2. Overpay Calculations for RAP items
 - RAP-based items rely primarily on price behavior and sale trends rather than assigned Rolimon’s values..
   - RoAnalytics estimates overpays for these items using:
@@ -90,46 +84,39 @@ Because of this, overpay values can’t be represented by a single number/range;
     - Modified Overpay Ranges:
       - Overpay to Give: 300 - 400 R$ (-17%)
       - Overpay to Receive: 500 - 600 R$ (-17%)
-   
+---
 ## 3. Overpay Calculations for Valued items
 - Valued Items: depend on **trading patterns, proof data, and market activity**.
   - RoAnalytics estimates overpays for these based on:
     - [x] The item’s rap to value ratio
     - [x] A detailed prediction model, that is generated from a given set of data, which is slipt into 3 different tiers: low, mid, high
   - 
-
 ---
-
 ## 4. Why is the Overpay Estimate N/A (Not Available)?
 There are several reasons why RoAnalytics may not provide an overpay estimate for a specific item:
 - Item value exceeds 200K
   - As the developer, I currently focus on items valued up to 200K. Items above this range aren’t yet supported because their trade data is more complex. As I gain more experience and collect more data, this limit will gradually increase.
 - Items with low or terrible demand often have unpredictable overpays, caused by market manipulation or irregular trade activity.
-  - This applys for valued items with low/terrible demand tag.
-    - For example, BPTH, being valued at 18K with 40K+ proofs.
-  - The same logic applies to RAP items - if an item sells less than 0.1 times per day, its market activity is too low to form a reliable prediction.
-    - For example, Aer, being valued at 45K RAP, with 40K+ proofs.
+  - This applies for valued items with low/terrible demand tag.
+    - For example, BPTH, being valued at 18,000 R$ with 40,000 R$+ proofs
+  - The same logic applies to RAP items with less than 0.1 sales per day.
+    - For example, Aer, with a RAP of 45,000 R$, with 40,000 R$+ proofs
 - Item is projected
-  - If an item is flagged as projected on Rolimon’s, no overpay estimate will be calculated.
-  - This prevents distorted or inflated data from being factored into predictions.
+  - If an item is flagged as a known projected on Rolimon’s, no overpay estimate will be calculated.
 
 Code logic used for determining eligibility:
 ```python
     if (
-      item_value > 160000 
+      item_value > 200000 
       or demand in ["Low", "Terrible"] 
       or daily_sales <= 0.1
       or projected
     ):
 ```
-
 ---
-
 ## 5. Contact
 If you have questions, please contact me!  
 - Discord: **luxuryrangerover**
-
 ---
-
 Thank you for using **RoAnalytics**!  
 This project is still evolving - your feedback is VERY important to improve prediction accuracy and make trading insights more reliable.
