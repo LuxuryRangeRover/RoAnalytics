@@ -15,7 +15,7 @@ RoAnalytics was built to provide reliable, data-driven insights into item inform
 
 ---
 
-### Table of Contents
+# Table of Contents
 1. [Understanding Overpays in Trading](#1-understanding-overpays-in-trading)
 2. [Overpay Calculations for RAP items](#2-overpay-calculations-for-rap-items)
 3. [Overpay Calculations for Valued items](#3-overpay-calculations-for-valued-items)
@@ -24,17 +24,17 @@ RoAnalytics was built to provide reliable, data-driven insights into item inform
 
 ---
 
-## 1. Understanding Overpays in Trading
+# 1. Understanding Overpays in Trading
 When trading, there are two types of overpays to keep in mind: 
 - **The overpay you give** - for example offering 300 overpay on a Legit
 - **The overpay you recieve** - for example, recieving 600 overpay on a Legit
 
-In an *ideal scenario*, you want to **give less overpay than you receive**. 
-Because of this, overpay values can’t be represented by a single number/range; doing so would make it unclear whether that range applies to what you should give or what you should expect to receive.
+In an *ideal scenario*, you want to **give less overpay than what you receive**. 
+Because of this, overpay values can’t be represented by a single number or range; doing so would make it unclear whether that range applies to what you should give or what you should expect to receive.
 
 ---
 
-## 2. Overpay Calculations for RAP items
+# 2. Overpay Calculations for RAP items
 - RAP-based items rely primarily on price behavior and sale trends rather than assigned Rolimon’s values..
   - RoAnalytics estimates overpays for these items using:
     - [x] The item’s current RAP
@@ -96,7 +96,7 @@ Because of this, overpay values can’t be represented by a single number/range;
 
 ---
 
-## 3. Overpay Calculations for Valued items
+# 3. Overpay Calculations for Valued items
 - Valued Items: depend on **trading patterns, proof data, and market activity**.
   - RoAnalytics estimates overpays for these based on:
     - [x] The item’s rap to value ratio
@@ -105,7 +105,7 @@ Because of this, overpay values can’t be represented by a single number/range;
 
 ---
 
-## 4. Why is the Overpay Estimate N/A (Not Available)?
+# 4. Why is the Overpay Estimate N/A (Not Available)?
 There are several reasons why RoAnalytics may not provide an overpay estimate for a specific item:
 - Item value exceeds 200K
   - As the developer, I currently focus on items valued up to 200K. Items above this range aren’t yet supported because their trade data is more complex. As I gain more experience and collect more data, this limit will gradually increase.
@@ -129,7 +129,7 @@ Code logic used for determining eligibility:
 
 ---
 
-## 5. Contact
+# 5. Contact
 If you have questions, please contact me!  
 - Discord: **luxuryrangerover**
 
