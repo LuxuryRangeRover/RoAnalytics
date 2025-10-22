@@ -42,12 +42,11 @@ Because of this, overpay values can’t be represented by a single number or ran
     - [ ] *(Planned) The item’s daily sales - demand*
   
   - The general trading rule assumes an average overpay of 10% of the item’s RAP. For example, a 4,000 R$ RAP item typically receives around 400 R$ in overpay.
-  - That 10% rule is then split into two separate overpay types:
+  - That 10% rule is then split into two separate default overpay types:
     - Overpay to Give:
-      - The range is between 6% - 8% of the item’s RAP as the typical range
+      - The range is between 0% - 2% of the item’s RAP
     - Overpay to Recieve:
-      - This range is slightly higher, at 10% - 12% of the item’s RAP
-  - Both types include a ± 2% tolerance range to account for market variation.
+      - This range is slightly higher, at 5% - 10% of the item’s RAP
   
   - Once the default "give” and “receive” overpay ranges are calculated, **bonuses or deductions** are applied to refine the estimates based on market data:
     - Best price consideration:
@@ -65,41 +64,41 @@ Because of this, overpay values can’t be represented by a single number or ran
     - Demand consideration:
       | Daily Sales (Average) | Adjustment Type   | % Change Applied |
       | :-------------------- | :---------------- | :--------------: |
-      | More than 1.0         | Bonus             |       +10%       |
+      | More than 1.0         | Bonus             |       +15%       |
       | 0.8 – 1.0             | Bonus             |        +7%       |
       | 0.6 – 0.8             | Bonus             |        +4%       |
       | 0.5 – 0.6             | Neutral           |        0%        |
-      | 0.3 – 0.5             | Deduction         |        -4%       |
-      | 0.1 – 0.3             | Deduction         |        -7%       |
+      | 0.3 – 0.5             | Deduction         |        -7%       |
+      | 0.1 – 0.3             | Deduction         |        -15%      |
       | Less than 0.1         | N/A (no estimate) |         —        |
   
   - Assume the following conditions: A 4,000 R$ RAP item, with best price of 5,000 R$, and daily sales of 1.5:
     - Default Overpay Ranges:
-      - Overpay to Give: 240 - 320 R$
-      - Overpay to Receive: 400 - 480 R$
+      - Overpay to Give: 0 - 80 R$
+      - Overpay to Receive: 200 - 400 R$
     - Bonuses:
       - Bonus due to best price: +15% to overpay
-      - Bonus due to demand: +10% to overpay
+      - Bonus due to demand: +15% to overpay
     - Modified Overpay Ranges:
-      - Overpay to Give: 300 - 400 R$ (+25%)
-      - Overpay to Give: 500 - 600 R$ (+25%)
+      - Overpay to Give: 0 - 100 R$ (+30%)
+      - Overpay to Give: 260 - 520 R$ (+30%)
   - Assume the following conditions: A 6,000 R$ RAP item, with best price of 5,000 R$, and daily sales of 0.2
     - Default Overpay Ranges:
-      - Overpay to Give: 360 - 480 R$
-      - Overpay to Receive: 600 - 720 R$
+      - Overpay to Give: 0 - 120 R$
+      - Overpay to Receive: 300 - 600 R$
     - Deductions:
       - Deduction due to best price: -10% to overpay
-      - Deduction due to demand: -7% to overpay
+      - Deduction due to demand: -15% to overpay
     - Modified Overpay Ranges:
-      - Overpay to Give: 300 - 400 R$ (-17%)
-      - Overpay to Receive: 500 - 600 R$ (-17%)
+      - Overpay to Give: 0 - 90 R$ (-25%)
+      - Overpay to Receive: 225 - 450 R$ (-25%)
 
 ---
 
 # 3. Overpay Calculations for Valued items
-- Valued Items: depend on **trading patterns, proof data, and market activity**.
+- Valued Items: depend on **trading patterns, proof data, and RAP in some cases**.
   - RoAnalytics estimates overpays for these based on:
-    - [x] The item’s rap to value ratio
+    - [x] The item’s rap to value ratio (for items less then 100,000 R$)
     - [x] A detailed prediction model, that is generated from a given set of data, which is slipt into 3 different tiers: low, mid, high
   - 
 
