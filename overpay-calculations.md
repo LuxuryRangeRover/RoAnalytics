@@ -112,7 +112,6 @@ Because of this, overpay values can’t be represented by a single number or ran
         - Overpay_To_Receive_Lower
         - Overpay_To_Receive_Upper
 
-> [!NOTE]
 > The data set used by RoAnalytics doesn’t need to be updated whenever item values change - overpay trends remain consistent enough for the models to stay accurate over time.
     
   2. Model Training
