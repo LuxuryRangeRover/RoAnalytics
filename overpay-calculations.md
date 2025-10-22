@@ -100,7 +100,38 @@ Because of this, overpay values can’t be represented by a single number or ran
   - RoAnalytics estimates overpays for these based on:
     - [x] The item’s rap to value ratio (for items less then 100,000 R$)
     - [x] A detailed prediction model, that is generated from a given set of data, which is slipt into 3 different tiers: low, mid, high
-  - 
+
+```python
+data_low = [
+    {"Item": "Legit", "Value": 4500, "Overpay_To_Give_Lower": 200, "Overpay_To_Give_Upper": 300, "Overpay_To_Receive_Lower": 500, "Overpay_To_Receive_Upper": 700},
+    {"Item": "GCWHP", "Value": 6000, "Overpay_To_Give_Lower": 400, "Overpay_To_Give_Upper": 500, "Overpay_To_Receive_Lower": 600, "Overpay_To_Receive_Upper": 900},
+    {"Item": "STA", "Value": 7000, "Overpay_To_Give_Lower": 550, "Overpay_To_Give_Upper": 750, "Overpay_To_Receive_Lower": 900, "Overpay_To_Receive_Upper": 1100},
+    {"Item": "BTH", "Value": 9000, "Overpay_To_Give_Lower": 700, "Overpay_To_Give_Upper": 900, "Overpay_To_Receive_Lower": 1000, "Overpay_To_Receive_Upper": 1300}
+]
+
+data_mid = [
+    {"Item": "BIA", "Value": 12000, "Overpay_To_Give_Lower": 800, "Overpay_To_Give_Upper": 1000, "Overpay_To_Receive_Lower": 1200, "Overpay_To_Receive_Upper": 1500},
+    {"Item": "GWW", "Value": 14000, "Overpay_To_Give_Lower": 900, "Overpay_To_Give_Upper": 1100, "Overpay_To_Receive_Lower": 1400, "Overpay_To_Receive_Upper": 1600},
+    {"Item": "Undead", "Value": 18000, "Overpay_To_Give_Lower": 1200, "Overpay_To_Give_Upper": 1500, "Overpay_To_Receive_Lower": 1800, "Overpay_To_Receive_Upper": 2300},
+    {"Item": "8BRC", "Value": 20000, "Overpay_To_Give_Lower": 1500, "Overpay_To_Give_Upper": 1800, "Overpay_To_Receive_Lower": 2000, "Overpay_To_Receive_Upper": 2600},
+    {"Item": "CS", "Value": 28000, "Overpay_To_Give_Lower": 2000, "Overpay_To_Give_Upper": 2300, "Overpay_To_Receive_Lower": 2500, "Overpay_To_Receive_Upper": 3300},
+    {"Item": "Dupa", "Value": 38000, "Overpay_To_Give_Lower": 2500, "Overpay_To_Give_Upper": 3000, "Overpay_To_Receive_Lower": 3500, "Overpay_To_Receive_Upper": 4500},
+    {"Item": "Supa", "Value": 55000, "Overpay_To_Give_Lower": 3500, "Overpay_To_Give_Upper": 5000, "Overpay_To_Receive_Lower": 5500, "Overpay_To_Receive_Upper": 6500},
+    {"Item": "RBM", "Value": 65000, "Overpay_To_Give_Lower": 4000, "Overpay_To_Give_Upper": 6000, "Overpay_To_Receive_Lower": 6500, "Overpay_To_Receive_Upper": 7500},
+    {"Item": "GQOTN", "Value": 80000, "Overpay_To_Give_Lower": 5000, "Overpay_To_Give_Upper": 7000, "Overpay_To_Receive_Lower": 8000, "Overpay_To_Receive_Upper": 9000}
+]
+
+data_high = [
+    {"Item": "Madness", "Value": 90000, "Overpay_To_Give_Lower": 7000, "Overpay_To_Give_Upper": 8000, "Overpay_To_Receive_Lower": 9000, "Overpay_To_Receive_Upper": 10000},
+    {"Item": "PV", "Value": 105000, "Overpay_To_Give_Lower": 7000, "Overpay_To_Give_Upper": 9000, "Overpay_To_Receive_Lower": 10500, "Overpay_To_Receive_Upper": 12000},
+    {"Item": "BBM", "Value": 115000, "Overpay_To_Give_Lower": 8500, "Overpay_To_Give_Upper": 10000, "Overpay_To_Receive_Lower": 11500, "Overpay_To_Receive_Upper": 13000},
+    {"Item": "BM", "Value": 125000, "Overpay_To_Give_Lower": 9000, "Overpay_To_Give_Upper": 11000, "Overpay_To_Receive_Lower": 12500, "Overpay_To_Receive_Upper": 14000},
+    {"Item": "Scissors", "Value": 135000, "Overpay_To_Give_Lower": 10000, "Overpay_To_Give_Upper": 11500, "Overpay_To_Receive_Lower": 13500, "Overpay_To_Receive_Upper": 15000},
+    {"Item": "TM", "Value": 150000, "Overpay_To_Give_Lower": 11000, "Overpay_To_Give_Upper": 13000, "Overpay_To_Receive_Lower": 15000, "Overpay_To_Receive_Upper": 17000},
+    {"Item": "BIH", "Value": 170000, "Overpay_To_Give_Lower": 13000, "Overpay_To_Give_Upper": 15000, "Overpay_To_Receive_Lower": 17000, "Overpay_To_Receive_Upper": 20000},
+    {"Item": "SEOTN", "Value": 190000, "Overpay_To_Give_Lower": 15000, "Overpay_To_Give_Upper": 17000, "Overpay_To_Receive_Lower": 19000, "Overpay_To_Receive_Upper": 24000}
+]
+```
 
 ---
 
