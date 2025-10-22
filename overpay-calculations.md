@@ -5,10 +5,7 @@ _Last updated: October 22, 2025_
 This document explains the **system used to calculate overpay (OP) estimates** in RoAnalytics. 
 It provides insight into the data patterns, value relationships, and trade dynamics behind each estimate.
 
-> [!NOTE]
 > Overpays are not manually entered. Instead, RoAnalytics uses **predictive modeling to estimate overpays automatically data or simple calculations**.
-
-> [!CAUTION]
 > Some estimates may not always be perfectly accurate. It’s always recommended to verify these overpays before trading.
 
 RoAnalytics was built to provide reliable, data-driven insights into item information - including predicted overpays for primarily high-demand items.
@@ -49,7 +46,7 @@ Because of this, overpay values can’t be represented by a single number or ran
   
   - Once the default "give” and “receive” overpay ranges are calculated, **bonuses or deductions** are applied to refine the estimates based on market data:
     - Best price consideration:
-      | Best Price Difference (vs RAP) | Adjustment Type | % Change Applied |
+       | Best Price Difference (vs RAP) | Adjustment Type | % Change Applied |
       | :----------------------------- | :-------------- | :--------------: |
       | > +30%                         | Bonus           |       +20%       |
       | +20% to +30%                   | Bonus           |       +15%       |
@@ -59,9 +56,9 @@ Because of this, overpay values can’t be represented by a single number or ran
       |  -10% to 0%                    | Deduction       |        -5%       |
       |  -20% to -10%                  | Deduction       |       -10%       |
       |  -30% to -20%                  | Deduction       |       -15%       |
-      | < -30%                         | Deduction       |       -20%       |
+      | < -30%                         | Deduction       |       -20%       | 
     - Demand consideration:
-      | Daily Sales (Average) | Adjustment Type   | % Change Applied |
+       | Daily Sales (Average) | Adjustment Type   | % Change Applied |
       | :-------------------- | :---------------- | :--------------: |
       | > 1.0                 | Bonus             |       +15%       |
       | 0.8 – 1.0             | Bonus             |        +7%       |
@@ -69,7 +66,7 @@ Because of this, overpay values can’t be represented by a single number or ran
       | 0.5 – 0.6             | Neutral           |        0%        |
       | 0.3 – 0.5             | Deduction         |        -7%       |
       | 0.1 – 0.3             | Deduction         |        -15%      |
-      | < 0.1                 | N/A               |         —        |
+      | < 0.1                 | N/A               |         —        | 
   - Examples:
     - 4,000 R$ RAP item, with best price of 5,000 R$, and daily sales of 1.5:
       - Default Overpay Ranges:
@@ -133,16 +130,17 @@ Because of this, overpay values can’t be represented by a single number or ran
   
   4. Model Tiering
        - Separate models are maintained for different market ranges to ensure better accuracy:
-         - | Tier  | Value Range           | Model Used   |
+            | Tier  | Value Range           | Model Used   |
            | :---- | :-------------------- | :----------  |
            | Low   | <= 11,000 R$          | `low_models` |
            | Mid   | 12,000 – 80,000 R$    | `mid_models` |
-           | High  | 80,000 – 200,000 R$   | `high_models`|
+           | High  | 80,000 – 200,000 R$   | `high_models`| 
   5. Continuous Improvement
        - As more trading data and community observations are collected, these datasets are expanded - retraining the models to make overpay predictions even more accurate over time.
 
   6. The Data:
-  ```python
+  
+   ```python
     data_low = [
         {"Item": "Legit", "Value": 4500, "Overpay_To_Give_Lower": 200, "Overpay_To_Give_Upper": 300, "Overpay_To_Receive_Lower": 500, "Overpay_To_Receive_Upper": 700},
         {"Item": "GCWHP", "Value": 6000, "Overpay_To_Give_Lower": 400, "Overpay_To_Give_Upper": 500, "Overpay_To_Receive_Lower": 600, "Overpay_To_Receive_Upper": 900},
@@ -172,18 +170,20 @@ Because of this, overpay values can’t be represented by a single number or ran
         {"Item": "BIH", "Value": 170000, "Overpay_To_Give_Lower": 13000, "Overpay_To_Give_Upper": 15000, "Overpay_To_Receive_Lower": 17000, "Overpay_To_Receive_Upper": 20000},
         {"Item": "SEOTN", "Value": 190000, "Overpay_To_Give_Lower": 15000, "Overpay_To_Give_Upper": 17000, "Overpay_To_Receive_Lower": 19000, "Overpay_To_Receive_Upper": 24000}
     ]
-  ```
+   ```
+   
 - RAP-to-Value Ratio Adjustment (for items less then 100,000 R$)
   - RoAnalytics also accounts for the RAP-to-Value ratio (RAP divided by value) of each limited item when generating its overpay range estimates. **The ratio influences whenever a valued item will recieve a bonus or deduction.**
   - This ratio provides insight into how stable an item’s RAP is relative to its assigned value.
-      | Tier    | RAP ÷ Value Ratio   | Adjustment Type | % Change Applied |
+       | Tier    | RAP ÷ Value Ratio   | Adjustment Type | % Change Applied |
       | :------ | :----------------   | :-------------- | :--------------: |
       | **Low** | >= 0.97             | Bonus           |       +15%       |
       | **Low** | 0.86 – 0.96         | Neutral         |        0%        |
       | **Low** | <= 0.85             | Deduction       |       -15%       |
       | **Mid** | >= 0.99             | Bonus           |       +15%       |
       | **Mid** | 0.91 – 0.98         | Neutral         |        0%        |
-      | **Mid** | <= 0.90             | Deduction       |       -15%       |
+      | **Mid** | <= 0.90             | Deduction       |       -15%       | 
+      
     - If an item’s RAP (Recent Average Price) is close to or above its value, the model interprets it as a strong-performing item with high trading activity or growing demand
       - In these cases, a bonus multiplier (up to +15%) is applied to increase the estimated overpay ranges
     - If an item’s RAP is significantly lower than its value, the model interprets it as a weak-performing or overvalued item.
@@ -211,6 +211,5 @@ If you have questions, please contact me!
 
 ---
 
-> [!TIP]
 > Thank you for using **RoAnalytics**!  
 > This project is still evolving - your feedback is VERY important to improve prediction accuracy and make trading insights more reliable.
