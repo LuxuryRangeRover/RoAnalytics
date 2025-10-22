@@ -1,6 +1,6 @@
 # Overpay Estimates — RoAnalytics
 
-_Last updated: October 12, 2025_
+_Last updated: October 21, 2025_
 
 This document explains the **methodology used to calculate overpay (OP) estimates** in RoAnalytics. 
 It provides insight into the data patterns, value relationships, and trade dynamics behind each estimate.
@@ -36,6 +36,7 @@ Because of this, overpay values can’t be represented by a single number/range;
 - Valued Items
   - Valued items are valued based on completed trades, offers, and demand trends (The rap can still affect their valuation, but not as much for items > 100K).
 
+## 3. Overpay Estimate Calculations
 Because these two item types are valued differently, **their overpay estimates are also calculated differently**:
 - RAP Items: rely on **price behavior and sale trends**.
   - RoAnalytics estimates overpays for these based on:
@@ -46,23 +47,24 @@ Because these two item types are valued differently, **their overpay estimates a
 - Valued Items: depend on **trading patterns, proof data, and market activity**.
   - RoAnalytics estimates overpays for these based on:
     - The item’s rap to value ratio
-    - A prediction model, that is generated from a given set of data.
+    - A detailed prediction model, that is generated from a given set of data, which is slipt into 3 different tiers: low, mid, high
+    - 
 
 ---
 
-## 3. TO BE ADDED
+## 4. TO BE ADDED
 
 
 ---
 
-## 4. Why is the Overpay Estimate N/A (Not Available)?
+## 5. Why is the Overpay Estimate N/A (Not Available)?
 There are several reasons why RoAnalytics may not provide an overpay estimate for a specific item:
-- Item value exceeds 160K
-  - As the developer, I currently focus on items valued up to 160K. Items above this range aren’t yet supported because their trade data is more complex. As I gain more experience and collect more data, this limit will gradually increase.
+- Item value exceeds 200K
+  - As the developer, I currently focus on items valued up to 200K. Items above this range aren’t yet supported because their trade data is more complex. As I gain more experience and collect more data, this limit will gradually increase.
 - Items with low or terrible demand often have unpredictable overpays, caused by market manipulation or irregular trade activity.
-  - This applys for valued items with low/terrible demand tag
+  - This applys for valued items with low/terrible demand tag.
     - For example, BPTH, being valued at 18K with 40K+ proofs.
-  - The same logic applies to RAP-based items - if an item sells less than 0.1 times per day, its market activity is too low to form a reliable prediction.
+  - The same logic applies to RAP items - if an item sells less than 0.1 times per day, its market activity is too low to form a reliable prediction.
     - For example, Aer, being valued at 45K RAP, with 40K+ proofs.
 - Item is projected
   - If an item is flagged as projected on Rolimon’s, no overpay estimate will be calculated.
@@ -80,11 +82,13 @@ Code logic used for determining eligibility:
 
 ---
 
-## 5. Contact
+## 6. Contact
 If you have questions, please contact me!  
 - Discord: **luxuryrangerover**
 
 ---
+
+## 7. The 
 
 Thank you for using **RoAnalytics**!  
 This project is still evolving - your feedback is VERY important to improve prediction accuracy and make trading insights more reliable.
