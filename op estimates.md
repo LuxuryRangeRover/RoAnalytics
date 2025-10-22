@@ -97,14 +97,10 @@ Because of this, overpay values can’t be represented by a single number/range;
     - [x] The item’s rap to value ratio
     - [x] A detailed prediction model, that is generated from a given set of data, which is slipt into 3 different tiers: low, mid, high
   - 
----
-
-## 4. TO BE ADDED
-
 
 ---
 
-## 5. Why is the Overpay Estimate N/A (Not Available)?
+## 4. Why is the Overpay Estimate N/A (Not Available)?
 There are several reasons why RoAnalytics may not provide an overpay estimate for a specific item:
 - Item value exceeds 200K
   - As the developer, I currently focus on items valued up to 200K. Items above this range aren’t yet supported because their trade data is more complex. As I gain more experience and collect more data, this limit will gradually increase.
@@ -129,13 +125,11 @@ Code logic used for determining eligibility:
 
 ---
 
-## 6. Contact
+## 5. Contact
 If you have questions, please contact me!  
 - Discord: **luxuryrangerover**
 
 ---
-
-## 7. The 
 
 Thank you for using **RoAnalytics**!  
 This project is still evolving - your feedback is VERY important to improve prediction accuracy and make trading insights more reliable.
