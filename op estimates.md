@@ -1,22 +1,23 @@
-# Overpay Estimates — RoAnalytics
+# Overpay Estimates - RoAnalytics
 
-_Last updated: October 21, 2025_
+_Last updated: October 22, 2025_
 
-This document explains the **methodology used to calculate overpay (OP) estimates** in RoAnalytics. 
+This document explains the **system used to calculate overpay (OP) estimates** in RoAnalytics. 
 It provides insight into the data patterns, value relationships, and trade dynamics behind each estimate.
 
 ### Keep in mind that overpays are not manually entered. 
-Instead, RoAnalytics uses **predictive modeling to estimate overpays automatically data and calculations**. 
-Because of this, some estimates may not always be perfectly accurate. It’s always recommended to verify values before trading.
+Instead, RoAnalytics uses **predictive modeling to estimate overpays automatically data or simple calculations**. 
+Because of this, some estimates may not always be perfectly accurate. It’s always recommended to verify these overpays before trading.
 RoAnalytics was built to provide reliable, data-driven insights into item information - including predicted overpays for primarily high-demand items.
 
 ---
 
 ## Table of Contents
 1. [Understanding Overpays in Trading](#1-understanding-overpays-in-trading)
-2. [RAP vs Valued Items](#2-rap-vs-valued-items-in-overpay-estimates)
-3. [Why Overpay is N/A](#4-why-is-the-overpay-estimate-na-not-available)
-4. [Contact](#5-contact)
+2. [Overpay Calculations for RAP items](#2-overpay-calculations-for-rap-items)
+3. [Overpay Calculations for Valued items](#2-overpay-calculations-for-valued-items)
+4. [Why Overpay is N/A](#4-why-is-the-overpay-estimate-na-not-available)
+5. [Contact](#5-contact)
 
 ---
 
@@ -30,26 +31,29 @@ Because of this, overpay values can’t be represented by a single number/range;
 
 ---
 
-## 2. RAP vs Valued Items in Overpay Estimates
-- RAP Items
-  - *Most* RAP items are valued purely by their Recent Average Price (RAP), meaning **their worth is directly tied to how frequently and how well they sell** on the market.
-- Valued Items
-  - Valued items are valued based on completed trades, offers, and demand trends (The rap can still affect their valuation, but not as much for items > 100K).
-
-## 3. Overpay Estimate Calculations
-Because these two item types are valued differently, **their overpay estimates are also calculated differently**:
-- RAP Items: rely on **price behavior and sale trends**.
-  - RoAnalytics estimates overpays for these based on:
-    - The current item’s RAP
-    - The item's best price
-    - How often the item sells (the demand)
-  
+## 2. Overpay Calculations for RAP items
+- RAP-based items rely primarily on price behavior and sale trends rather than assigned Rolimon’s values..
+  - RoAnalytics estimates overpays for these items using:
+    - The item’s current RAP
+    - *(Planned) The item’s best price*
+    - *(Planned) The item’s sale frequency - demand*
+  - The baseline estimate assumes an average overpay of 10% of the item’s RAP. For example, a 4,000 RAP item typically receives around 400 R$ in overpay.
+  - This 10% rule is then split into two separate overpay types:
+    - Overpay to Give:
+      - RoAnalytics uses 6%–8% of the item’s RAP as the typical range
+    - Overpay to Recieve:
+      - This range is slightly higher, at 10%–12% of the item’s RAP
+  - Both types include a ±2% tolerance range to account for market variation.
+  - Example: A 4,000 RAP item would have:
+    - Overpay to Give: 240–320 R$
+    - Overpay to Receive: 400–480 R$
+   
+## 3. Overpay Calculations for Valued items
 - Valued Items: depend on **trading patterns, proof data, and market activity**.
   - RoAnalytics estimates overpays for these based on:
     - The item’s rap to value ratio
     - A detailed prediction model, that is generated from a given set of data, which is slipt into 3 different tiers: low, mid, high
-    - 
-
+  - 
 ---
 
 ## 4. TO BE ADDED
