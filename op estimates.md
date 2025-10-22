@@ -34,16 +34,37 @@ Because of this, overpay values can’t be represented by a single number/range;
 ## 2. Overpay Calculations for RAP items
 - RAP-based items rely primarily on price behavior and sale trends rather than assigned Rolimon’s values..
   - RoAnalytics estimates overpays for these items using:
-    - The item’s current RAP
-    - *(Planned) The item’s best price*
-    - *(Planned) The item’s sale frequency - demand*
-  - The baseline estimate assumes an average overpay of 10% of the item’s RAP. For example, a 4,000 RAP item typically receives around 400 R$ in overpay.
-  - This 10% rule is then split into two separate overpay types:
+    - [x] The item’s current RAP
+    - [ ] *(Planned) The item’s best price*
+    - [ ] *(Planned) The item’s daily sales - demand*
+  - The general trading rule assumes an average overpay of 10% of the item’s RAP. For example, a 4,000 RAP item typically receives around 400 R$ in overpay.
+  - That 10% rule is then split into two separate overpay types:
     - Overpay to Give:
       - RoAnalytics uses 6%–8% of the item’s RAP as the typical range
+      - The item's best price, and demand will be added as a bonus or deduction to the total overpay
     - Overpay to Recieve:
       - This range is slightly higher, at 10%–12% of the item’s RAP
   - Both types include a ±2% tolerance range to account for market variation.
+  - Once the default "give” and “receive” overpay ranges are calculated, **bonuses or deductions** are applied to refine the estimates based on market data:
+    - Best price consideration:
+      - 
+      - If the item's best price is greather then 30% of the item's RAP, the bonus applies a 20% increase
+      - If the item's best price is between 20% and 30% of the item's RAP, the bonus applies a 15% increase
+      - If the item's best price is between 10% and 20% of the item's RAP, the bonus applies a 10% increase
+      - If the item's best price is between 0% and 10% of the item's RAP, the bonus applies a 5% increase
+      - If the item's best price is equal to the item's RAP, no bonus or deduction applies
+      - If the item's best price is between -10% and 0% of the item's RAP, the deduction applies a -5% decrease
+      - If the item's best price is between -20% and -10% of the item's RAP, the deduction applies a -10% decrease
+      - If the item's best price is between -30% and -20% of the item's RAP, the deduction applies a -15% decrease
+      - If the item's best price is less then -30% of the item's RAP, the deduction applies a -20% decrease
+    - Demand consideration:
+      - If the item's daily sales is more then 1, the bonus applies a 10% increase
+      - If the item's daily sales is between 0.8 and 1, the bonus applies a 7% increase
+      - If the item's daily sales is between 0.6 and 0.8, the bonus applies a 4% increase
+      - If the item's daily sales is between 0.5 and 0.6, no bonus or deduction applies
+      - If the item's daily sales is between 0.3 and 0.5, the deduction applies a -4% decrease
+      - If the item's daily sales is between 0.1 and 0.3, the deduction applies a 7% decreases
+      - If the item's daily sales is less then 0.1, no overpay estimates
   - Example: A 4,000 RAP item would have:
     - Overpay to Give: 240–320 R$
     - Overpay to Receive: 400–480 R$
@@ -51,8 +72,8 @@ Because of this, overpay values can’t be represented by a single number/range;
 ## 3. Overpay Calculations for Valued items
 - Valued Items: depend on **trading patterns, proof data, and market activity**.
   - RoAnalytics estimates overpays for these based on:
-    - The item’s rap to value ratio
-    - A detailed prediction model, that is generated from a given set of data, which is slipt into 3 different tiers: low, mid, high
+    - [x] The item’s rap to value ratio
+    - [x] A detailed prediction model, that is generated from a given set of data, which is slipt into 3 different tiers: low, mid, high
   - 
 ---
 
