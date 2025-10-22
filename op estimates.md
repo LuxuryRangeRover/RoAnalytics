@@ -5,12 +5,12 @@ _Last updated: October 22, 2025_
 This document explains the **system used to calculate overpay (OP) estimates** in RoAnalytics. 
 It provides insight into the data patterns, value relationships, and trade dynamics behind each estimate.
 
-### Keep in mind that overpays are not manually entered. 
+Keep in mind that overpays are not manually entered. 
 Instead, RoAnalytics uses **predictive modeling to estimate overpays automatically data or simple calculations**. 
 Because of this, some estimates may not always be perfectly accurate. It’s always recommended to verify these overpays before trading.
 RoAnalytics was built to provide reliable, data-driven insights into item information - including predicted overpays for primarily high-demand items.
 ---
-## Table of Contents
+### Table of Contents
 1. [Understanding Overpays in Trading](#1-understanding-overpays-in-trading)
 2. [Overpay Calculations for RAP items](#2-overpay-calculations-for-rap-items)
 3. [Overpay Calculations for Valued items](#2-overpay-calculations-for-valued-items)
