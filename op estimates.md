@@ -41,7 +41,7 @@ Because of this, overpay values can’t be represented by a single number/range;
   - The general trading rule assumes an average overpay of 10% of the item’s RAP. For example, a 4,000 R$ RAP item typically receives around 400 R$ in overpay.
   - That 10% rule is then split into two separate overpay types:
     - Overpay to Give:
-      - RoAnalytics uses 6% - 8% of the item’s RAP as the typical range
+      - The range is between 6% - 8% of the item’s RAP as the typical range
     - Overpay to Recieve:
       - This range is slightly higher, at 10% - 12% of the item’s RAP
   - Both types include a ± 2% tolerance range to account for market variation.
