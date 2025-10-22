@@ -41,10 +41,9 @@ Because of this, overpay values can’t be represented by a single number or ran
     - [ ] *(Planned) The item’s best price*
     - [ ] *(Planned) The item’s daily sales - demand*
   
-  - The general trading rule assumes an average overpay of 10% of the item’s RAP. For example, a 4,000 R$ RAP item typically receives around 400 R$ in overpay.
-  - That 10% rule is then split into two separate default overpay types:
+  - The general trading rule assumes an average overpay of 10% of the item’s RAP. It is then split into two separate default overpay ranges:
     - Overpay to Give:
-      - The range is between 0% - 2% of the item’s RAP
+      - The range is between 0% - 3% of the item’s RAP
     - Overpay to Recieve:
       - This range is slightly higher, at 5% - 10% of the item’s RAP
   
@@ -82,6 +81,7 @@ Because of this, overpay values can’t be represented by a single number or ran
     - Modified Overpay Ranges:
       - Overpay to Give: 0 - 100 R$ (+30%)
       - Overpay to Give: 260 - 520 R$ (+30%)
+      
   - Assume the following conditions: A 6,000 R$ RAP item, with best price of 5,000 R$, and daily sales of 0.2
     - Default Overpay Ranges:
       - Overpay to Give: 0 - 120 R$
