@@ -8,19 +8,11 @@ It provides insight into the data patterns, value relationships, and trade dynam
 > **💡 NOTE:** Overpays are not manually entered. Instead, RoAnalytics uses **predictive modeling** to estimate overpays automatically.
 
 > **⚠ WARNING:** Some estimates may not be perfectly accurate. It’s always recommended to verify these overpays before trading.
----
-
-# Table of Contents
-1. [Understanding Overpays in Trading](#1-understanding-overpays-in-trading)
-2. [Overpay Calculations for RAP items](#2-overpay-calculations-for-rap-items)
-3. [Overpay Calculations for Valued items](#3-overpay-calculations-for-valued-items)
-4. [Why Overpay is N/A](#4-why-is-the-overpay-estimate-na-not-available)
-5. [Contact](#5-contact)
 
 ---
 
 # 1. Understanding Overpays in Trading
-When trading, there are two types of overpays to keep in mind: 
+**When trading, there are two types of overpays to keep in mind:** 
 - **The overpay you give** - for example offering 300 overpay on a Legit
 - **The overpay you recieve** - for example, recieving 600 overpay on a Legit
 
@@ -30,7 +22,7 @@ Because of this, overpay values can’t be represented by a single number or ran
 ---
 
 # 2. Overpay Calculations for RAP items
-- RAP-based items rely primarily on price behavior and sale trends rather than assigned Rolimon’s values..
+- **RAP-based items rely primarily on price behavior and sale trends rather than assigned Rolimon’s values.**
   - RoAnalytics estimates overpays for these items using:
     - [x] The item’s current RAP
     - [ ] *(Planned) The item’s best price*
@@ -171,20 +163,13 @@ Because of this, overpay values can’t be represented by a single number or ran
 - RAP-to-Value Ratio Adjustment (for items less then 100,000 R$)
   - RoAnalytics also accounts for the RAP-to-Value ratio (RAP divided by value) of each limited item when generating its overpay range estimates. **The ratio influences whenever a valued item will recieve a bonus or deduction.**
   - This ratio provides insight into how stable an item’s RAP is relative to its assigned value.
-       | Tier    | RAP ÷ Value Ratio   | Adjustment Type | % Change Applied |
+      | Tier    | RAP tp Value Ratio   | Adjustment Type | % Change Applied |
       | :------ | :----------------   | :-------------- | :--------------: |
-      | **Low** | >= 0.97             | Bonus           |       +15%       |
-      | **Low** | 0.86 – 0.96         | Neutral         |        0%        |
-      | **Low** | <= 0.85             | Deduction       |       -15%       |
-      | **Mid** | >= 0.99             | Bonus           |       +15%       |
-      | **Mid** | 0.91 – 0.98         | Neutral         |        0%        |
-      | **Mid** | <= 0.90             | Deduction       |       -15%       | 
-      
-    - If an item’s RAP (Recent Average Price) is close to or above its value, the model interprets it as a strong-performing item with high trading activity or growing demand
-      - In these cases, a bonus multiplier (up to +15%) is applied to increase the estimated overpay ranges
-    - If an item’s RAP is significantly lower than its value, the model interprets it as a weak-performing or overvalued item.
-      - A deduction multiplier (down to -15%) is applied to reduce the overpay estimates accordingly
-
+      | Low | >= 0.97             | Bonus           |       +15%       |
+      | Low | <= 0.85             | Deduction       |       -15%       |
+      | Mid | >= 0.99             | Bonus           |       +15%       |
+      | Mid | <= 0.90             | Deduction       |       -15%       | 
+    - Anything between does not contain a bonus, or deduction to the item's overpay (0%).
 ---
 
 # 4. Why is the Overpay Estimate N/A (Not Available)?
