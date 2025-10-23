@@ -35,8 +35,8 @@ Because of this, overpay values can’t be represented by a single number or ran
       | Recieve       | 5% - 10% of the item’s RAP  |
   
   - Once the default "give” and “receive” overpay ranges are calculated, **bonuses or deductions** are applied to refine the estimates based on market data:
-    - Best price consideration:
-       | **Best Price Difference (vs RAP)** | **Adjustment** | **% Change** |
+    - Best price (BP) consideration:
+       | **BP vs RAP Difference** | **Adjustment** | **% Change** |
       | :----------------------------- | :-------------- | :--------------: |
       | > +30%                         | Bonus           |       +20%       |
       | +20% to +30%                   | Bonus           |       +15%       |
@@ -48,7 +48,7 @@ Because of this, overpay values can’t be represented by a single number or ran
       |  -30% to -20%                  | Deduction       |       -15%       |
       | < -30%                         | Deduction       |       -20%       | 
     - Demand consideration:
-       | **Daily Sales (Average)** | **Adjustment**   | **% Change** |
+       | **Daily Sales** | **Adjustment**   | **% Change** |
       | :-------------------- | :---------------- | :--------------: |
       | > 1.0                 | Bonus             |       +15%       |
       | 0.8 – 1.0             | Bonus             |        +7%       |
@@ -158,7 +158,7 @@ Because of this, overpay values can’t be represented by a single number or ran
 - **RAP-to-Value Ratio Adjustment (for items less then 100,000 R$)**
   - RoAnalytics also accounts for the RAP-to-Value ratio (RAP divided by value) of each limited item when generating its overpay range estimates. **The ratio influences whenever a valued item will recieve a bonus or deduction.**
   - This ratio provides insight into how stable an item’s RAP is relative to its assigned value.
-      | **Tier**    | **RAP tp Value Ratio**   | **Adjustment** | **% Change** |
+      | **Tier**    | **Ratio**   | **Adjustment** | **% Change** |
       | :------ | :----------------   | :-------------- | :--------------: |
       | Low | >= 0.97             | Bonus           |       +15%       |
       | Low | <= 0.85             | Deduction       |       -15%       |
