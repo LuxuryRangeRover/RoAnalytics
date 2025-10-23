@@ -5,13 +5,8 @@ _Last updated: October 22, 2025_
 This document explains the **system used to calculate overpay (OP) estimates** in RoAnalytics. 
 It provides insight into the data patterns, value relationships, and trade dynamics behind each estimate.
 
-> [!NOTE]
-> Overpays are not manually entered. Instead, RoAnalytics uses **predictive modeling to estimate overpays automatically data or simple calculations**.
-> RoAnalytics was built to provide reliable, data-driven insights into item information - including predicted overpays for primarily high-demand items.
-
-> [!WARNING]
-> Some estimates may not always be perfectly accurate. It’s always recommended to verify these overpays before trading.
-
+> **💡 NOTE:** Overpays are not manually entered. Instead, RoAnalytics uses **predictive modeling** to estimate overpays automatically.
+> **⚠ WARNING:** Some estimates may not be perfectly accurate. It’s always recommended to verify these overpays before trading.
 ---
 
 # Table of Contents
@@ -113,9 +108,7 @@ Because of this, overpay values can’t be represented by a single number or ran
         - Overpay_To_Give_Upper
         - Overpay_To_Receive_Lower
         - Overpay_To_Receive_Upper
-
-> [!IMPORTANT]
-> The data set used by RoAnalytics doesn’t need to be updated whenever item values change - overpay trends remain consistent enough for the models to stay accurate over time.
+      - The data set used by RoAnalytics doesn’t need to be updated whenever item values change - overpay trends remain consistent enough for the models to stay accurate over time.
     
   2. Model Training
        - The system uses scikit-learn to train a separate predictive model for each of the four overpay metrics.
@@ -210,9 +203,3 @@ There are several reasons why RoAnalytics may not provide an overpay estimate fo
 # 5. Contact
 If you have questions, please contact me!  
 - Discord: **luxuryrangerover**
-
----
-
-> [!TIP]
-> Thank you for using **RoAnalytics**!  
-> This project is still evolving - your feedback is VERY important to improve prediction accuracy and make trading insights more reliable.
