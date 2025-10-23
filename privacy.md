@@ -1,15 +1,15 @@
-# Privacy Policy for RoliAnalytics
+# Privacy Policy for RoAnalytics
 
-_Last updated: September 6, 2025_
+_Last updated: October 22, 2025_
 
-Your privacy is important to us. This Privacy Policy explains how RoliAnalytics handles user data.
+Your privacy is important to us. This Privacy Policy explains how RoAnalytics handles user data.
 
 ---
 
 ## 1. Data We Collect
-RoliAnalytics collects only the minimum data necessary to operate:  
+RoAnalytics collects only the minimum data necessary to operate:  
 - **Discord User ID** (when you interact with the bot)  
-- **Commands used** (for functionality and debugging)  
+- **Commands and command inputs such as item, months, RSI** (for functionality and debugging)  
 
 We do **not** collect passwords, emails, or sensitive personal information.
 
@@ -36,12 +36,12 @@ Data may be shared only if required by law or to comply with legal obligations.
 ---
 
 ## 5. Security
-We take reasonable measures to protect your data. However, no system is 100% secure. Use RoliAnalytics at your own risk.
+We take reasonable measures to protect your data. However, no system is 100% secure. Use RoAnalytics at your own risk.
 
 ---
 
 ## 6. Children’s Privacy
-RoliAnalytics is intended for users who comply with Discord’s minimum age requirement (13+).  
+RoAnalytics is intended for users who comply with Discord’s minimum age requirement (13+).  
 We do not knowingly collect information from children under 13.
 
 ---
@@ -53,4 +53,4 @@ We may update this Privacy Policy at any time. Updates will be reflected on this
 
 ## 8. Contact
 If you have questions about this Privacy Policy, please contact:  
-**luxuryrangerover (creator of RoliAnalytics)**
+**luxuryrangerover**
