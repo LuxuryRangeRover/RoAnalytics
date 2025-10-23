@@ -36,7 +36,7 @@ Because of this, overpay values can’t be represented by a single number or ran
   
   - Once the default "give” and “receive” overpay ranges are calculated, **bonuses or deductions** are applied to refine the estimates based on market data:
     - Best price consideration:
-       | Best Price Difference (vs RAP) | Adjustment Type | % Change Applied |
+       | **Best Price Difference (vs RAP)** | **Adjustment** | **% Change** |
       | :----------------------------- | :-------------- | :--------------: |
       | > +30%                         | Bonus           |       +20%       |
       | +20% to +30%                   | Bonus           |       +15%       |
@@ -48,7 +48,7 @@ Because of this, overpay values can’t be represented by a single number or ran
       |  -30% to -20%                  | Deduction       |       -15%       |
       | < -30%                         | Deduction       |       -20%       | 
     - Demand consideration:
-       | Daily Sales (Average) | Adjustment Type   | % Change Applied |
+       | **Daily Sales (Average)** | **Adjustment**   | **% Change** |
       | :-------------------- | :---------------- | :--------------: |
       | > 1.0                 | Bonus             |       +15%       |
       | 0.8 – 1.0             | Bonus             |        +7%       |
@@ -89,8 +89,8 @@ Because of this, overpay values can’t be represented by a single number or ran
     - [x] The item’s rap to value ratio (for items less then 100,000 R$)
 - The system relies on Python-based regression models that learn the relationship between an item’s assigned value and its observed overpay ranges across multiple tiers (low, mid, high)
 
-- How the Model Works
-  1. Dataset Preparation
+- **How the Model Works**
+  1. **Dataset Preparation**
       - RoAnalytics maintains three internal datasets:
         - data_low — for low-tier items
         - data_mid — for mid-tier items
@@ -102,8 +102,7 @@ Because of this, overpay values can’t be represented by a single number or ran
         - Overpay_To_Receive_Lower
         - Overpay_To_Receive_Upper
       - The data set used by RoAnalytics doesn’t need to be updated whenever item values change - overpay trends remain consistent enough for the models to stay accurate over time.
-    
-  2. Model Training
+  2. **Model Training**
        - The system uses scikit-learn to train a separate predictive model for each of the four overpay metrics.
        - A Ridge regression model (a regularized form of linear regression) is applied (degree is always 1 (linear) and alpha is 10). The following code snippit looks like this:
          ```python
@@ -112,22 +111,18 @@ Because of this, overpay values can’t be represented by a single number or ran
           model.fit(X, y)
           return model
          ```
-       
-  3. Prediction
+  3. **Prediction**
        - Once trained, the models can estimate overpay ranges for any item within the range of the provided data.
-  
-  4. Model Tiering
+  4. **Model Tiering**
        - Separate models are maintained for different market ranges to ensure better accuracy:
-            | Tier  | Value Range           | Model Used   |
+            | **Tier**  | **Value Range**           | **Model Used**   |
            | :---- | :-------------------- | :----------  |
            | Low   | <= 11,000 R$          | `low_models` |
            | Mid   | 12,000 – 80,000 R$    | `mid_models` |
            | High  | 80,000 – 200,000 R$   | `high_models`| 
-  5. Continuous Improvement
+  5. **Continuous Improvement**
        - As more trading data and community observations are collected, these datasets are expanded - retraining the models to make overpay predictions even more accurate over time.
-
-  6. The Data:
-  
+  6. **The Data**
    ```python
     data_low = [
         {"Item": "Legit", "Value": 4500, "Overpay_To_Give_Lower": 200, "Overpay_To_Give_Upper": 300, "Overpay_To_Receive_Lower": 500, "Overpay_To_Receive_Upper": 700},
@@ -160,10 +155,10 @@ Because of this, overpay values can’t be represented by a single number or ran
     ]
    ```
    
-- RAP-to-Value Ratio Adjustment (for items less then 100,000 R$)
+- **RAP-to-Value Ratio Adjustment (for items less then 100,000 R$)**
   - RoAnalytics also accounts for the RAP-to-Value ratio (RAP divided by value) of each limited item when generating its overpay range estimates. **The ratio influences whenever a valued item will recieve a bonus or deduction.**
   - This ratio provides insight into how stable an item’s RAP is relative to its assigned value.
-      | Tier    | RAP tp Value Ratio   | Adjustment Type | % Change Applied |
+      | **Tier**    | **RAP tp Value Ratio**   | **Adjustment** | **% Change** |
       | :------ | :----------------   | :-------------- | :--------------: |
       | Low | >= 0.97             | Bonus           |       +15%       |
       | Low | <= 0.85             | Deduction       |       -15%       |
