@@ -104,7 +104,8 @@ Because of this, overpay values can’t be represented by a single number or ran
       - The data set used by RoAnalytics doesn’t need to be updated whenever item values change - overpay trends remain consistent enough for the models to stay accurate over time.
   2. **Model Training**
        - The system uses scikit-learn to train a separate predictive model for each of the four overpay metrics.
-       - A Ridge regression model (a regularized form of linear regression) is applied (degree is always 1 (linear) and alpha is 10). The following code snippit looks like this:
+       - A Ridge regression model (a regularized form of linear regression) is applied (degree is always 1 (linear) and alpha is 10).
+       - The following code snippit looks like this (X is the item's tier (low, mid high) y is the item's value):
          ```python
          def make_model(y):
           model = make_pipeline(PolynomialFeatures(1), Ridge(alpha=10))
