@@ -28,7 +28,8 @@ Because of this, overpay values can’t be represented by a single number or ran
     - [ ] *(Planned) The item’s best price*
     - [ ] *(Planned) The item’s daily sales - demand*
   
-  - The general trading rule assumes an average overpay of 10% of the item’s RAP. It is then split into two separate default overpay ranges:
+  - The general trading rule assumes an average overpay of 10% of the item’s RAP.
+     - It is then split into two separate default overpay ranges
          | Overpay Type  | Range                       |
         | :----         | :--------------------       |
         | Give          | 0% - 3% of the item’s RAP   |
