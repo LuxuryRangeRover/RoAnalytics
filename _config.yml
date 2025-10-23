@@ -1,5 +1,8 @@
 theme: minima
-minima:
-  skin: dark
+sass:
+  style: compressed
+
+include:
+  - assets/css/style.css
 
 markdown: GFM
