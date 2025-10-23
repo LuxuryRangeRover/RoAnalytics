@@ -1,2 +1,5 @@
-theme: jekyll-theme-cayman
+theme: minima
+minima:
+  skin: dark
+
 markdown: GFM
