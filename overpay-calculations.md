@@ -1,62 +1,49 @@
 # Overpay Estimates - RoAnalytics
 
-_Last updated: October 22, 2025_
+_Last updated: November 7, 2025_
 
 This document explains the **system used to calculate overpay (OP) estimates** in RoAnalytics. 
 It provides insight into the data patterns, value relationships, and trade dynamics behind each estimate.
 
 > **💡 NOTE:** Overpays are not manually entered. Instead, RoAnalytics uses **predictive modeling** to estimate overpays automatically.
 
-> **⚠ WARNING:** Some estimates may not be perfectly accurate. It’s always recommended to verify these overpays before trading.
-
 ---
 
-# 1. Understanding Overpays in Trading
-**When trading, there are two types of overpays to keep in mind:** 
-- **The overpay you give** - for example offering 300 overpay on a Legit
-- **The overpay you recieve** - for example, recieving 600 overpay on a Legit
-
-In an *ideal scenario*, you want to **give less overpay than what you receive**. 
-Because of this, overpay values can’t be represented by a single number or range; doing so would make it unclear whether that range applies to what you should give or what you should expect to receive.
-
----
-
-# 2. Overpay Calculations for RAP items
+# 1. Overpay Calculations for RAP items
 - **RAP-based items rely primarily on price behavior and sale trends rather than assigned Rolimon’s values.**
-  - RoAnalytics estimates overpays for these items using:
-    - [x] The item’s current RAP
-    - [ ] *(Planned) The item’s best price*
-    - [ ] *(Planned) The item’s daily sales - demand*
+  - RoAnalytics estimates the overpay ranges for these items using three key factors:
+    1. The item’s current RAP
+    2. The item’s best price
+    3. The item’s daily sales -> Measures demand
   
-  - The general trading rule assumes an average overpay of 10% of the item’s RAP.
-     - It is then split into two separate default overpay ranges
-         | Overpay Type  | Range                       |
-        | :----         | :--------------------       |
-        | Give          | 0% - 3% of the item’s RAP   |
-        | Recieve       | 5% - 10% of the item’s RAP  | 
-  - Once the default "give” and “receive” overpay ranges are calculated, **bonuses or deductions** are applied to refine the estimates based on market data:
-    - Best price (BP) consideration:
-       | **BP vs RAP Difference** | **Adjustment** | **% Change** |
-      | :----------------------------- | :-------------- | :--------------: |
-      | > +30%                         | Bonus           |       +20%       |
-      | +20% to +30%                   | Bonus           |       +15%       |
-      |  +10% to +20%                  | Bonus           |       +10%       |
-      |  0% to +10%                    | Bonus           |        +5%       |
-      | =                              | Neutral         |        0%        |
-      |  -10% to 0%                    | Deduction       |        -5%       |
-      |  -20% to -10%                  | Deduction       |       -10%       |
-      |  -30% to -20%                  | Deduction       |       -15%       |
-      | < -30%                         | Deduction       |       -20%       | 
-    - Demand consideration:
-       | **Daily Sales** | **Adjustment**   | **% Change** |
-      | :-------------------- | :---------------- | :--------------: |
-      | > 1.0                 | Bonus             |       +15%       |
-      | 0.8 – 1.0             | Bonus             |        +7%       |
-      | 0.6 – 0.8             | Bonus             |        +4%       |
-      | 0.5 – 0.6             | Neutral           |        0%        |
-      | 0.3 – 0.5             | Deduction         |        -7%       |
-      | 0.1 – 0.3             | Deduction         |        -15%      |
-      | < 0.1                 | N/A               |         —        | 
+  1. A general trading assumption is that these items trade for about 10% of their RAP in overpay. This 10% baseline is then divided into two default ranges:
+     | Overpay Type  | Range                       |
+     | :----         | :--------------------       |
+     | Give          | 0% - 3% of the item’s RAP   |
+     | Recieve       | 5% - 10% of the item’s RAP  |
+  
+  2. Once the base overpay ranges are established, adjustments (bonus/drop) are applied based on best price (first table) and demand (second table).
+     | **BP vs RAP Difference**       | **Adjustment**  | **% Change**     |
+     | :----------------------------- | :-------------- | :--------------: |
+     | > +30%                         | Bonus           |       +15%       |
+     | +20% to +30%                   | Bonus           |       +10%       |
+     |  +10% to +20%                  | Bonus           |      +7.5%       |
+     |  0% to +10%                    | Bonus           |        +5%       |
+     | =                              | Neutral         |         0%       |
+     |  -10% to 0%                    | Drop            |       -15%       |
+     |  -20% to -10%                  | Drop            |       -20%       |
+     |  -30% to -20%                  | Drop            |       -25%       |
+     | < -30%                         | Drop            |       -30%       | 
+
+     | **Daily Sales** | **Adjustment**   | **% Change** |
+     | :-------------------- | :---------------- | :--------------: |
+     | > 1.0                 | Bonus             |        +15%      |
+     | 0.8 – 1.0             | Bonus             |        +10%      |
+     | 0.6 – 0.8             | Bonus             |         +5%      |
+     | 0.5 – 0.6             | Neutral           |          0%      |
+     | 0.3 – 0.5             | Drop              |        -15%      |
+     | 0.1 – 0.3             | Drop              |        -20%      |
+     | < 0.1                 | -                 |          -       | 
   - Examples:
     - 4,000 R$ RAP item, with best price of 5,000 R$, and daily sales of 1.5:
       - Default Overpay Ranges:
@@ -82,11 +69,11 @@ Because of this, overpay values can’t be represented by a single number or ran
 
 ---
 
-# 3. Overpay Calculations for Valued items
+# 2. Overpay Calculations for Valued items
 - Valued Items: depend on **trading patterns, proof data, and RAP in some cases**.
   - RoAnalytics estimates overpays for these based on:
-    - [x] A detailed prediction model, that is generated from a given set of data, which is slipt into 3 different tiers: low, mid, high
-    - [x] The item’s rap to value ratio (for items less then 100,000 R$)
+    - A detailed prediction model, that is generated from a given set of data, which is slipt into 3 different tiers: low, mid, high
+    - The item’s rap to value ratio (for items less then 100,000 R$)
 - The system relies on Python-based regression models that learn the relationship between an item’s assigned value and its observed overpay ranges across multiple tiers (low, mid, high)
 
 - **How the Model Works**
@@ -168,7 +155,7 @@ Because of this, overpay values can’t be represented by a single number or ran
     - Anything between does not contain a bonus, or deduction to the item's overpay (0%).
 ---
 
-# 4. Why is the Overpay Estimate N/A (Not Available)?
+# 3. Why is the Overpay Estimate N/A (Not Available)?
 There are several reasons why RoAnalytics may not provide an overpay estimate for a specific item:
 - Item value exceeds 200K
   - As the developer, I currently focus on items valued up to 200K. Items above this range aren’t yet supported because their trade data is more complex. As I gain more experience and collect more data, this limit will gradually increase.
@@ -182,6 +169,6 @@ There are several reasons why RoAnalytics may not provide an overpay estimate fo
 
 ---
 
-# 5. Contact
+# 4. Contact
 If you have questions, please contact me!  
 - Discord: **luxuryrangerover**
