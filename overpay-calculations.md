@@ -22,7 +22,7 @@ It provides insight into the data patterns, value relationships, and trade dynam
      | Give          | 0% - 3% of the item’s RAP   |
      | Recieve       | 5% - 10% of the item’s RAP  |
   
-  2. Once the base overpay ranges are established, adjustments (bonus/drop) are applied based on best price (first table) and demand (second table).
+  2. Once the base overpay ranges are established, adjustments (bonus/drop) are applied based on best price (first table) and demand (second table). The % will shift the whole range of that item's overpay, preserving width, more on it later.
      | **BP vs RAP Difference**       | **Adjustment**  | **% Change**     |
      | :----------------------------- | :-------------- | :--------------: |
      | > +30%                         | Bonus           |       +15%       |
@@ -35,7 +35,7 @@ It provides insight into the data patterns, value relationships, and trade dynam
      |  -30% to -20%                  | Drop            |       -25%       |
      | < -30%                         | Drop            |       -30%       | 
 
-     | **Daily Sales** | **Adjustment**   | **% Change** |
+     | **Daily Sales**       | **Adjustment**    | **% Change**     |
      | :-------------------- | :---------------- | :--------------: |
      | > 1.0                 | Bonus             |        +15%      |
      | 0.8 – 1.0             | Bonus             |        +10%      |
@@ -46,26 +46,33 @@ It provides insight into the data patterns, value relationships, and trade dynam
      | < 0.1                 | -                 |          -       | 
   - Examples:
     - 4,000 R$ RAP item, with best price of 5,000 R$, and daily sales of 1.5:
-      - Default Overpay Ranges:
-        - Overpay to Give: 0 - 80 R$
-        - Overpay to Receive: 200 - 400 R$
-      - Bonuses:
-        - Bonus due to best price: +15% to overpay
-        - Bonus due to demand: +15% to overpay
-      - **Final Overpay Ranges:**
-        - **Overpay to Give: 0 - 100 R$ (+30%)**
-        - **Overpay to Give: 260 - 520 R$ (+30%)**
-      
-    - 6,000 R$ RAP item, with best price of 5,000 R$, and daily sales of 0.2
-      - Default Overpay Ranges:
+      1. Default Overpay Ranges:
         - Overpay to Give: 0 - 120 R$
-        - Overpay to Receive: 300 - 600 R$
-      - Deductions:
-        - Deduction due to best price: -10% to overpay
-        - Deduction due to demand: -15% to overpay
-      - **Final Overpay Ranges:**
-        - **Overpay to Give: 0 - 90 R$ (-25%)**
-        - **Overpay to Receive: 225 - 450 R$ (-25%)**
+        - Overpay to Receive: 200 - 400 R$
+      2. Calculate Multipliers:
+        - Best Price vs RAP: 
+          - 5,000 / 4,000 -> bp_diff = +25% -> bp_multiplier = 1.10
+        - Daily Sales:
+          - 1.5 -> demand_multiplier = 1.15
+        - Total multiplier = 1.10 × 1.15 ~= 1.265
+      3. Shift the Whole Range:
+        - Give Range Midpoint = (0 + 120)/2 = 60
+        - Half-width = (120 – 0)/2 = 60
+        - New midpoint = 60 × 1.265 ≈ 75.9
+        - Final Give Low = 75.9 – 60 ≈ 16
+        - Final Give High = 75.9 + 60 ≈ 136
+          - Final Give: 16 – 136 R$
+        - Receive Range Midpoint = (200 + 400)/2 = 300
+        - Half-width = (400 – 200)/2 = 100
+        - New midpoint = 300 × 1.265 ≈ 379.5
+        - Final Receive Low = 379.5 – 100 ≈ 280
+        - Final Receive High = 379.5 + 100 ≈ 480
+          - Final Receive: 280 – 480 R$
+      4. Percent Change:
+        - Total % change = (1.265 – 1) × 100 ≈ +27%
+      5. Final Overpay Ranges:
+        - Overpay to Give: 16 – 136	+27%
+        - Overpay to Receive: 280 – 480	+27%
 
 ---
 
